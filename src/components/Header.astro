@@ -1,27 +1,37 @@
 ---
 interface Props {
-    links: Links[] | null
+  links: Links[] | null;
 }
 interface Links {
-    title: string
-    url: string
+  title: string;
+  url: string;
 }
 const { links } = Astro.props;
+
+const defaultLinks: Links[] = [
+  { title: "Trips", url: "/trips" },
+  { title: "About", url: "/about" },
+  { title: "Get in touch", url: "/contact" },
+];
 ---
 
-<header class="container self-center flex bg-pink-500 py-6 px-4">
+<header
+  class="self-center flex py-3 px-4 sticky top-6 rounded-full font-semibold text-black"
+>
   <nav>
-    <p>Sail</p>
-    <ul class="flex space-x-4">
-      {links ? (
-        links.map(link => (
+    <ul class="flex gap-6">
+      {
+        (links || defaultLinks).map((link) => (
           <li>
-            <a href={link.url} class="text-white hover:underline">{link.title}</a>
+            <a
+              href={link.url}
+              class="relative text-black hover:text-blue-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]"
+            >
+              {link.title}
+            </a>
           </li>
         ))
-      ) : (
-        <li>No links available</li>
-      )}
+      }
     </ul>
   </nav>
 </header>

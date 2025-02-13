@@ -2,11 +2,19 @@
 import Layout from "../layouts/Layout.astro";
 import { WordPressAPI } from "../lib/wp";
 const { title, content } = await WordPressAPI.getPageInfo("pagina-de-inicio");
+import horizontal from "../assets/img.jpg";
+import vertical from "../assets/img2.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
-  <section class="max-w-4xl mx-auto py-8 px-4">
-    <h1 class="text-4xl font-bold mb-4">{title}</h1>
-    <div class="prose prose-lg" set:html={content} />
+  <Image src={vertical} alt="Image" class="absolute right-0 top-0 max-w-96" />
+  <section class="container mx-auto py-8 px-4">
+    <div id="logo" class="absolute top-8 text-4xl font-bold italic">LOGO</div>
+    <div class="mt-96 relative w-full flex">
+      <h1 class=" font-bold mb-4 absolute left-40 -top-18 italic text-8xl font-serif">{title}</h1>
+      <Image src={vertical} alt="Image" class="self-start max-w-96 " />
+      <div class="prose prose-lg" set:html={content} />
+    </div>
   </section>
 </Layout>
