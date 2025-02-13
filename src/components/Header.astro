@@ -1,0 +1,27 @@
+---
+interface Props {
+    links: Links[] | null
+}
+interface Links {
+    title: string
+    url: string
+}
+const { links } = Astro.props;
+---
+
+<header class="container self-center flex bg-pink-500 py-6 px-4">
+  <nav>
+    <p>Sail</p>
+    <ul class="flex space-x-4">
+      {links ? (
+        links.map(link => (
+          <li>
+            <a href={link.url} class="text-white hover:underline">{link.title}</a>
+          </li>
+        ))
+      ) : (
+        <li>No links available</li>
+      )}
+    </ul>
+  </nav>
+</header>
