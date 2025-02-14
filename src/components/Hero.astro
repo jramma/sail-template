@@ -1,10 +1,53 @@
 ---
-import img from "../assets/b-k-heleth-almkmJ6ALNk-unsplash.jpg";
-
+import { Icon } from "astro-icon/components";
+import img from "../assets/matthew-hamilton-KtI5aQU9Pzo-unsplash.jpg";
 import { Image } from "astro:assets";
+import Btn  from "./Btn.astro";
 ---
 
-<section class="flex flex-col ">
-  <div class="p-10 w-full h-96">TEXTO</div>
-    <Image src={img} alt="imagen" class="w-full max-h-96 object-cover rounded-4xl" />
+<section class="flex flex-col text-6xl">
+  <!-- La altura de este div está bien -->
+  <div class="p-10 w-full">
+    <div class="flex items-center">
+      <p class="">MODERN</p>
+      <Icon name="shape" class="text-secondary" /><p>ENVIRONMETNALLY</p>
+      <div
+        class="bg-tertiary rounded-full aspect-square p-2 relative text-white"
+      >
+        <Icon
+          name="stamp"
+          class="text-white rotate-45 border-white border-1 rounded-full p-3"
+        />
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+          <path
+            id="circlePath"
+            d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+            fill="none"></path>
+          <text>
+            <textPath
+              href="#circlePath"
+              startOffset="50%"
+              text-anchor="middle"
+              class="text-white"
+            >
+              Your Circular Text Here
+            </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <Btn />
+      <p class="px-8">FRIENDLY BUILDINGS</p>
+      <ul class="text-lg font-light  pt-10">
+        <li>Modern</li>
+        <li>Environmentally</li>
+        <li>Friendly Buildings</li>
+      </ul>
+    </div>
+  </div>
+  <!-- ESTE SEGUNDO DIV MIDA 1/2 la altura de lo que es la section -->
+  <div class="w-full rounded-3xl relative max-h-72 overflow-hidden ">
+    <Image src={img} alt="Barcelona" class="rounded-3xl object-cover" />
+  </div>
 </section>
