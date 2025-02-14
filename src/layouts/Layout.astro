@@ -1,23 +1,24 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import "../styles/global.css"
-import "@fontsource/poppins"
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import "./src/styles/global.css";
+import "@fontsource/roboto-flex";
 ---
-
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="m-0 p-0 flex flex-col">
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="m-0 p-0 flex flex-col">
+    <Header />
+    <div class="container self-center border-solid border-gray-600 border-2 rounded-4xl">
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
 </html>

@@ -22,3 +22,5 @@ bun.lock
 
 # jetbrains setting folder
 .idea/
+
+assets/
